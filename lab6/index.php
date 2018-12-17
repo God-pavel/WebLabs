@@ -7,7 +7,7 @@ $database='lab6';
 $user='user';
 $pswd='P@ss1234';
 $conn = mysqli_connect($host, $user, $pswd, $database);
-// Check connection
+
 if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
 }
@@ -30,7 +30,7 @@ if($_POST['width'] && $_POST['height']){
           echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
   }
-}  
+}
 mysqli_close($conn);
 ?>
 
@@ -41,7 +41,7 @@ mysqli_close($conn);
     <title><?=$width?> <?=$height?></title>
     <style>
     TABLE {
-      table-layout: fixed; /* Ячейки фиксированной ширины */
+      table-layout: fixed;
      }
      table tr {
        height: 40px;
@@ -64,7 +64,7 @@ mysqli_close($conn);
     <section>
       <p class = "text"> First table </p>
 
-      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width="600" height="300">
+      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width="600" height="300" id = "table1">
         <tr>
           <td colspan="<?=$width?>"></td>
         </tr>
@@ -107,7 +107,7 @@ mysqli_close($conn);
 
       <p class = "text"> Second table </p>
 
-      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width = 600 height = 300>
+      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width = 600 height = 300 id = "table2">
 
         <?php
           $w = $width-1;
@@ -162,7 +162,7 @@ mysqli_close($conn);
 
       <p class = "text"> Third table </p>
 
-      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width = 600 height = 300>
+      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width = 600 height = 300 id = "table3">
 
       <?php
       $counter = 0;
@@ -221,10 +221,10 @@ mysqli_close($conn);
 
       <p class = "text"> Fourth table </p>
 
-      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width = 600 id="table">
+      <table border="3" cols="<?=$width?>" rows="<?=$height?>" width = 600 id="table4">
         <tr>
           <?php
-          $counter = 0;
+          $counter = 1;
             for ($i=0; $i < $width; $i++) {
               $j = ($i+2)%3;
           ?>
@@ -249,5 +249,10 @@ mysqli_close($conn);
         ?>
       </table>
     </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+    <script type="text/javascript" src="script.js">
+
+    </script>
   </body>
 </html>
